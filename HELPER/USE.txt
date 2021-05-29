@@ -1,0 +1,31 @@
+accounts_index.php
+    - on y accéde via un header() dans l'index principal
+    
+    - il appelle les fonctions de accountController.php 
+
+controller/accountController.php 
+    - il as besoin d'étre relié par un require au controller du se charge du front:
+        - sa fonction goToSite(), appelée dans les fonctions, appelle ici la fonction goToHomeView() du frontController.php
+
+                    function goToHomeView() {
+                        require('view/homeView.php');
+                        exit();
+                    }
+
+
+
+//////////////////////////////////////////////////////////////////////
+//INCLUDES DIAGRAM
+
+    - goToSite() -> parts/homeView
+
+    homeView {
+        require(template) {
+            include(title) {
+                include(accounts) {
+                    require(controller/frontController)
+                    include_once(logout)
+                }
+            }
+        }
+    }

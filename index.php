@@ -8,7 +8,7 @@ require_once('controller/frontController.php');
 try {
     if(!isset($_GET['action'])) {
         //si pas d'action, on va vers l'index de 'accounts' en envoyant un GETsession-state = first-load
-        header('Location: Account/accounts_index.php?session-state=init-session');
+        header('Location: accounts_index.php?session-state=init-session');
     }
     else {  
         if($_GET['action'] == 'go-site') {

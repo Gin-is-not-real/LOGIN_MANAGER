@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <?php include('title.php'); ?>
+        <?php include('accounts.php'); ?>
 
         <?=$content?>
     </body>

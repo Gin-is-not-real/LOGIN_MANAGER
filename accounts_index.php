@@ -1,6 +1,5 @@
 <?php
 require('controller/accountController.php');
-require_once('controller/frontController.php');
 if(session_id() == '') {
     session_start();
 }
@@ -13,7 +12,7 @@ try {
                 session_destroy();
             }
         }
-        goToHomeView();
+        goToSite();
     }
     else {
 

@@ -1,13 +1,14 @@
 <?php
 require_once('model/AccountManager.php');
-
+require_once('controller/frontController.php');
 // CONTROLLER
 if(session_id() == '') {
     session_start();
 }
 
 function goToSite() {
-    header('Location: index.php?action=go-site');
+    // header('Location: index.php?action=go-site');
+    require_once('view/homeView.php');
 }
 
 function deconnection() {
