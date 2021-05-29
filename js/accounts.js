@@ -1,20 +1,37 @@
 const main_accounts = document.getElementById("main-accounts");
+
+const btn_admin_on = document.getElementById("btn-admin-mode");
+btn_admin_on.targetSection = document.getElementById("notice");
+btn_admin_on.addEventListener("click", function() {
+    let display = this.targetSection.style.display;
+    this.targetSection.style.display = display == "none" ? "flex" : "none";
+})
+
 const btn_deconnection = document.getElementById("btn-deconnection");
+
 const btn_home = document.getElementById("btn-home");
+btn_home.targetSection = document.getElementById("notice");
+
+/*
+    les boutons suivant ont une prop targetSection, c'est elle qui sera display dans sa fonction displaySection(btn)
+*/
 const btn_connection = document.getElementById("btn-connection");
 btn_connection.targetSection = document.getElementById("sec-connection");
 const btn_registration = document.getElementById("btn-registration");
 btn_registration.targetSection = document.getElementById("sec-registration");
 
-const btns_accounts = [btn_connection, btn_registration];
-btns_accounts.forEach(btn => {
+const btns_displayers = [btn_connection, btn_registration];
+btns_displayers.forEach(btn => {
     btn.addEventListener("click", function() {
         displaySection(this);
     })
 })
 
+/*
+    switche entre flex/none pour la proprietée display de la prop targetSection du btn qui appelle la fonction
+*/
 function displaySection(btn) {
-    btns_accounts.forEach(b => {
+    btns_displayers.forEach(b => {
         if(b === btn) {
             console.log(b.targetSection);
 
@@ -27,27 +44,3 @@ function displaySection(btn) {
     })
 }
 
-// const pageLoad = function() {
-//     let path = window.location.pathname;
-//     console.log("path", path);
-
-//     if(path.includes("accounts") || !path.includes("index")) {
-//         document.querySelectorAll(".visible-on-home").forEach(btn => {
-//             btn.style.display = "block";
-//         });
-
-//         document.querySelectorAll(".visible-on-app").forEach(btn => {
-//             btn.style.display = "none";
-//         });
-//     }
-//     else {
-//         document.querySelectorAll(".visible-on-home").forEach(btn => {
-//             btn.style.display = "none";
-//         });
-
-//         document.querySelectorAll(".visible-on-app").forEach(btn => {
-//             btn.style.display = "block";
-//         });
-//     }
-// }
-// // pageLoad();

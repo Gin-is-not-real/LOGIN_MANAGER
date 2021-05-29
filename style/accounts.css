@@ -52,7 +52,9 @@
     width: max-content;
     margin-top: 2%;
 
-    display: flex;
+    /* display: flex; */
+    display: none;
+
     flex-direction: column;
 }
 #notice > * {

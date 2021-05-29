@@ -3,6 +3,7 @@ require_once('controller/frontController.php');
 if(session_id() == '') {
     session_start();
 }
+
 $btn_connect = '<input class="round-btn super blue visible-on-home" id="btn-connection" type="submit" name="action" value="LOG IN">';
 $btn_register = '<input class="round-btn super blue visible-on-home" id="btn-registration" type="submit" name="action" value="REGISTER">';
 $btn_home = '<a href="accounts_index.php"><input class="round-btn super visible-on-app" id="btn-home" type="submit" name="action" value="HOME"></a>';
@@ -14,15 +15,7 @@ $btns = array();
     <div>
         <?php 
         if(isset($_GET['notice'])) {
-            // if($_GET['notice'] == 'op-added') {
-            //     $_POST['notification'] = "The operation has been successfully <strong>recorded</strong> ";
-            // }
-            // else if($_GET['notice'] == 'op-suppr') {
-            //     $_POST['notification'] = "The operation has been successfully <strong>deleted</strong> ";
-            // }
-            // else if($_GET['notice'] == 'op-update') {
-            //     $_POST['notification'] = "The operation has been successfully <strong>updated</strong> ";
-            // }
+
         }
         else {
             if(!isset($_SESSION['pseudo'])) {
@@ -48,8 +41,6 @@ $btns = array();
 ?>
     </div>
 
-
-
     <div id="div-btns">
         <?php
             foreach($btns as $input) {
@@ -70,7 +61,7 @@ $btns = array();
     </div>
 
 
-
+<!-- LOGOUT -->
     <div id="div-logout">
         <div id="r-notice">
             <?php 
@@ -88,37 +79,39 @@ $btns = array();
         </div>
     </div>
 
+
 <main id="main-accounts" >
-<!-- <main id="main-registration"> -->
-<section id="sec-connection" class="centred-section accounts">
-    <form class="form-accounts" action="accounts_index.php?action=connection" method="post">
-        <section>
-            <header>
-                <h3>CONNECTION</h3>
-            </header>
+<!-- CONNECTION -->
+    <section id="sec-connection" class="centred-section accounts">
+        <form class="form-accounts" action="accounts_index.php?action=connection" method="post">
+            <section>
+                <header>
+                    <h3>CONNECTION</h3>
+                </header>
 
-            <table class="table-form-accounts">
-                <tr>
-                    <th>Pseudo</th>
-                    <th>Password</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" class="form_textfield" name="pseudo" required autocomplete="off">
-                    </td>
-                    <td>
-                        <input type="password" class="form_textfield" name="pass" required autocomplete="off">
-                    </td>
-                </tr>
-            </table>
-        </section>
-        <div>
-            <input class="round-btn super green" type="submit" value="LOG IN">
-        </div>
-    </form>
-</section>
+                <table class="table-form-accounts">
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Password</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form_textfield" name="pseudo" required autocomplete="off">
+                        </td>
+                        <td>
+                            <input type="password" class="form_textfield" name="pass" required autocomplete="off">
+                        </td>
+                    </tr>
+                </table>
+            </section>
+            <div>
+                <input class="round-btn super green" type="submit" value="LOG IN">
+            </div>
+        </form>
+    </section>
 
-<section id="sec-registration" class="centred-section accounts">
+<!-- REGISTRATION -->
+    <section id="sec-registration" class="centred-section accounts">
         <form class="form-accounts" id="form-registration" action="accounts_index.php?action=registration" method="post">
         <section>
             <header>
